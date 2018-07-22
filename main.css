@@ -1,0 +1,14 @@
+.notes-container{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    background-color: dodgerblue;
+}
+.notes-container > button{
+    width: 60px;
+    height: 30px;
+    margin: 10px;
+    font-size: 18px;
+    text-align: center; 
+    border-radius: 20%;
+}
