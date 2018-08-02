@@ -3,26 +3,27 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Page Title</title>
+    <title>Notes visualiser</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
 </head>
 <body>
-    <canvas id="myCanvas" width="1350" height="400"style="border:1px solid #000000;">
+    <h1 id="headline">Notes visualiser&nbsp♪♫♪</h1>
+    <canvas id="myCanvas" width="1350" height="400">
     </canvas>
     <div class="notes-container">
+        <button onclick="drawNotes('C','#ff3300')" style="background-color: #ff3300">C</button>
+        <button onclick="drawNotes('C#','#ff751a')" style="background-color: #ff751a">C#/Db</button>
+        <button onclick="drawNotes('D','#0000ff')" style="background-color: #0000ff">D</button>
+        <button onclick="drawNotes('D#','#0099ff')" style="background-color: #0099ff">D#/Eb</button>
+        <button onclick="drawNotes('E','#9900cc')" style="background-color: #9900cc">E</button>
+        <button onclick="drawNotes('F','#9900ff')" style="background-color: #9900ff">F</button>
+        <button onclick="drawNotes('F#','#9966ff')" style="background-color: #9966ff">F#/Gb</button>
+        <button onclick="drawNotes('G','#663300')" style="background-color: #663300">G</button>
+        <button onclick="drawNotes('G#','#996600')" style="background-color: #996600">G#/Ab</button>
         <button onclick="drawNotes('A','#33cc33')" style="background-color: #33cc33">A</button>
         <button onclick="drawNotes('A#','#99ff33')" style="background-color: #99ff33">A#/Bb</button>
-        <button onclick="drawNotes('B','#ffff00')" style="background-color: #ffff00">B</button>
-        <button onclick="drawNotes('C','#ffcc00')" style="background-color: #ffcc00">C</button>
-        <button onclick="drawNotes('C#','#ff0000')" style="background-color: #ff0000">C#/Db</button>
-        <button>D</button>
-        <button>D#/Eb</button>
-        <button>E</button>
-        <button>F</button>
-        <button>F#/Gb</button>
-        <button>G</button>
-        <button>G#/Ab</button>
+        <button onclick="drawNotes('B','#e6e600')" style="background-color: #e6e600">B</button>
     </div>
     <script src="main.js"></script>
 </body>

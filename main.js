@@ -81,26 +81,31 @@ function drawOpenNotesAndNumerize(){
     }
 }
 
-drawOpenNotesAndNumerize();
+//drawOpenNotesAndNumerize();
 
 function drawNotes(clickedNote, color){
     //go through all strings
     var arc_r = 15;
-    var starting_notes = [f,a_,d_,g_,c,f];
+    var starting_notes = [e,a,d,g,b,e];
     for( var i = 0; i < starting_notes.length; i++){
         //go through all notes on string
         var note = starting_notes[i];
-        var x_ = x_offset+neck_length-(fretWidth*neck_length)/2 - 10;
+        var x_ = x_offset+neck_length+(fretWidth*neck_length)/2 - 10;
         var y_ = y_offset+i*space_between_strings - 10;
-        for( var j = 1; j <= number_of_frets; j++){
+        for( var j = 1; j <= number_of_frets+1; j++){
             ctx.fillStyle = (clickedNote === note.name) ? color : "black";
-            ctx.clearRect(x_-arc_r,y_-arc_r*2, arc_r*3, arc_r*2+8);
+            ctx.clearRect(x_-arc_r-1,y_-arc_r*2-1, arc_r*3+2, arc_r*2+8+2);
+            if(clickedNote === note.name){
+                ctx.strokeStyle = color;
+                ctx.strokeRect(x_-arc_r,y_-arc_r*2, arc_r*3, arc_r*2+8);
+            }
             ctx.fillText(note.name, x_,y_);
             note = note.next;
             x_ -= fretWidth*neck_length;
         }
     }
 }
+
 drawNotes();
 
 function numberizeFrets(){

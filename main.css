@@ -12,3 +12,10 @@
     text-align: center; 
     border-radius: 20%;
 }
+#headline{
+    display: flex;
+    justify-content: center;
+    font-family: 'Comic Sans';
+    font-size: 60px;
+    font-style: italic;
+}
