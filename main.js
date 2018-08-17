@@ -44,6 +44,19 @@ function drawFrets(){
         ctx.moveTo(x1,y1);
         ctx.lineTo(x1,y1+neck_width-space_between_strings);
         ctx.stroke();
+        if (i == 5 || i == 7 || i == 9 || i == 15){
+            ctx.beginPath();
+            ctx.arc(x1+(fretWidth*neck_length)/2, y1+space_between_strings*2.5, 4, 0, 360);
+            ctx.fill();
+        }
+        if(i == 12) {
+            ctx.beginPath();
+            ctx.arc(x1+(fretWidth*neck_length)/2, y1+space_between_strings*1.5, 4, 0, 360);
+            ctx.fill();
+            ctx.beginPath();
+            ctx.arc(x1+(fretWidth*neck_length)/2, y1+space_between_strings*3.5, 4, 0, 360);
+            ctx.fill();
+        }
     }
 }
 
