@@ -12,13 +12,16 @@ var neck_length = 1250;
 var neck_width = 300;
 var number_of_strings = 6;
 
-var x_offset = 40;
-var y_offset = 60;
+var x_offset = 40.5;
+var y_offset = 60.5;
 var number_of_frets = 20;
 
 var space_between_strings = neck_width/number_of_strings;
 
+var global_line_style_black;
+
 function drawStrings(){
+   global_line_style_black = ctx.strokeStyle;
    for(var i=0; i < number_of_strings; i++){
     ctx.moveTo(x_offset+neck_length,y_offset+i*space_between_strings);
     ctx.lineTo(x_offset, y_offset+i*space_between_strings);
@@ -90,23 +93,33 @@ function drawNotes(clickedNote, color){
     for( var i = 0; i < starting_notes.length; i++){
         //go through all notes on string
         var note = starting_notes[i];
-        var x_ = x_offset+neck_length+(fretWidth*neck_length)/2 - 10;
-        var y_ = y_offset+i*space_between_strings - 10;
+        var x_ = x_offset+neck_length+(fretWidth*neck_length)/2;
+        var y_ = y_offset+i*space_between_strings;
         for( var j = 1; j <= number_of_frets+1; j++){
-            ctx.fillStyle = (clickedNote === note.name) ? color : "black";
-            ctx.clearRect(x_-arc_r-1,y_-arc_r*2-1, arc_r*3+2, arc_r*2+8+2);
-            if(clickedNote === note.name){
-                ctx.strokeStyle = color;
-                ctx.strokeRect(x_-arc_r,y_-arc_r*2, arc_r*3, arc_r*2+8);
+            ctx.clearRect(x_-arc_r-0.5,y_-arc_r-0.5, 2*arc_r+0.5, 2*arc_r+0.5);
+            if( x_ < (neck_length+x_offset)){
+                ctx.beginPath();
+                ctx.moveTo(x_+arc_r,y_);
+                ctx.lineTo(x_-arc_r,y_);
+                ctx.strokeStyle = global_line_style_black;
+                ctx.stroke();
             }
-            ctx.fillText(note.name, x_,y_);
+            if(clickedNote != note.name){
+                note = note.next;
+                x_ -= fretWidth*neck_length;
+                continue;
+            }
+            ctx.fillStyle = color;
+            ctx.beginPath();
+            ctx.arc(x_,y_,arc_r,0,360);
+            ctx.fill();
             note = note.next;
             x_ -= fretWidth*neck_length;
         }
     }
 }
 
-drawNotes();
+//drawNotes();
 
 function numberizeFrets(){
     var xPos = x_offset + neck_length - (fretWidth*neck_length)/2;
