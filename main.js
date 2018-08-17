@@ -113,7 +113,7 @@ function drawNotes(clickedNote, color){
             if( x_ < (neck_length+x_offset)){
                 ctx.beginPath();
                 ctx.moveTo(x_+arc_r,y_);
-                ctx.lineTo(x_-arc_r,y_);
+                ctx.lineTo(x_-arc_r-2,y_);
                 ctx.strokeStyle = global_line_style_black;
                 ctx.stroke();
             }
@@ -137,7 +137,7 @@ function drawNotes(clickedNote, color){
 function numberizeFrets(){
     var xPos = x_offset + neck_length - (fretWidth*neck_length)/2;
     for( i = 1; i <= number_of_frets; i++){
-        ctx.fillText(i, xPos, y_offset + neck_width);
+        ctx.fillText(i, xPos, y_offset - 30);
         xPos -= fretWidth*neck_length;
     }
 }
