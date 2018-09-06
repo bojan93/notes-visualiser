@@ -143,3 +143,12 @@ function numberizeFrets(){
 }
 
 numberizeFrets();
+
+function reset(){
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = "black";
+    ctx.strokeStyle = global_line_style_black;
+    drawStrings();
+    drawFrets();
+    numberizeFrets();
+}
